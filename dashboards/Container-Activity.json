@@ -64,7 +64,7 @@
               "function": "mean",
               "groupby_field": "container_name",
               "interval": "10s",
-              "query": "select container_name, mean(memory_usage) from \"stats\" where $timeFilter and memory_usage <> 0 and container_name !~ /.*\\// group by time($interval), container_name order asc",
+              "query": "select container_name, mean(memory_usage) from \"stats\" where $timeFilter and memory_usage <> 0 group by time($interval), container_name order asc",
               "series": "stats"
             }
           ],
@@ -140,12 +140,12 @@
             {
               "alias": "",
               "column": "cpu_cumulative_usage",
-              "condition": "cpu_cumulative_usage > 0 and container_name !~ /\\//",
+              "condition": "cpu_cumulative_usage > 0 ",
               "fill": "",
               "function": "derivative",
               "groupby_field": "container_name",
               "interval": "5s",
-              "query": "select container_name, derivative(cpu_cumulative_usage) from \"stats\" where $timeFilter and cpu_cumulative_usage > 0 and container_name !~ /\\// group by time($interval), container_name order asc",
+              "query": "select container_name, derivative(cpu_cumulative_usage) from \"stats\" where $timeFilter and cpu_cumulative_usage > 0 group by time($interval), container_name order asc",
               "series": "stats"
             }
           ],
@@ -210,11 +210,11 @@
           "targets": [
             {
               "column": "rx_bytes",
-              "condition": "rx_bytes > 0 and container_name !~ /\\//",
+              "condition": "rx_bytes > 0 ",
               "function": "derivative",
               "groupby_field": "container_name",
               "interval": "1m",
-              "query": "select container_name, derivative(rx_bytes) from \"stats\" where $timeFilter and rx_bytes > 0 and container_name !~ /\\// group by time($interval), container_name order asc",
+              "query": "select container_name, derivative(rx_bytes) from \"stats\" where $timeFilter and rx_bytes > 0 group by time($interval), container_name order asc",
               "series": "stats"
             }
           ],
@@ -278,11 +278,11 @@
           "targets": [
             {
               "column": "tx_bytes",
-              "condition": "tx_bytes > 0 and container_name !~ /\\//",
+              "condition": "tx_bytes > 0 ",
               "function": "derivative",
               "groupby_field": "container_name",
               "interval": "1m",
-              "query": "select container_name, derivative(tx_bytes) from \"stats\" where $timeFilter and tx_bytes > 0 and container_name !~ /\\// group by time($interval), container_name order asc",
+              "query": "select container_name, derivative(tx_bytes) from \"stats\" where $timeFilter and tx_bytes > 0 group by time($interval), container_name order asc",
               "series": "stats"
             }
           ],
