@@ -60,7 +60,7 @@
             {
               "alias": "",
               "column": "memory_usage",
-              "condition": "memory_usage <> 0 and container_name !~ /.*\\//",
+              "condition": "memory_usage <> 0 ",
               "function": "mean",
               "groupby_field": "container_name",
               "interval": "10s",
